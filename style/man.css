@@ -1,0 +1,278 @@
+:root {
+    --vermelho: #e50914;
+    --preta: #141414;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ELEMENTOS BASE*/
+
+body {
+    background: var(--preta);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: white;
+    padding: 0px;
+}
+
+#menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    z-index: 2;
+    background-color: var(--preta);
+}
+
+header .container {
+    position: fixed;
+    margin-left: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logo {
+    color: var(--vermelho);
+    font-family: 'Arial Black', Helvetica;
+    font-size: 50px;
+    margin-left: 10px;
+}
+
+header nav a {
+    text-decoration: none;
+    color: #AAA;
+    margin-right: 20px;
+    font-size: 18px;
+}
+
+header nav a:hover {
+    color: #fff;
+}
+
+header {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: var(--preta);
+    padding: 8px 8px;
+    transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+}
+
+
+/* FILME PRINCIPAL */
+
+.filme-principal {
+    font-size: 16px;
+    background: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)100%), url(/img/capa_star_war.jpg);
+    height: 620px;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.filme-principal .titulo {
+    font-size: 30px;
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+}
+
+.filme-principal .descricao {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+}
+
+.botao {
+    background-color: rgba(0, 0, 0, .50);
+    color: white;
+    border: 1px solid #AAA;
+    padding: 15px 30px;
+    margin-right: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .3s ease all;
+}
+
+.botao:hover {
+    background-color: #e50914;
+    color: var(--preta);
+}
+
+.botao i {
+    margin-right: 3px;
+}
+
+.container {
+    margin-left: 15px;
+}
+
+.filme-principal .container {
+    width: 70%;
+    /*400px*/
+}
+
+.carrosel-filmes {
+    z-index: -1;
+    margin-top: 10;
+}
+
+.box-filme {
+    height: auto;
+    width: auto;
+    display: block;
+}
+
+
+/* footer*/
+
+.info {
+    background: var(--preta);
+    max-width: 900px;
+    margin: auto;
+}
+
+.info a {
+    color: #AAA;
+    -webkit-transition: color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out;
+}
+
+.info a:hover {
+    color: var(--vermelho);
+}
+
+.copyright {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #AAA;
+    font-size: 1.3rem;
+}
+
+.copyright a {
+    text-decoration: none;
+}
+
+.voltar-topo {
+    color: #AAA;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    -webkit-transition: .5s ease;
+    transition: all .5s ease;
+    animation: parabaixo;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    margin-bottom: 5px;
+}
+
+.voltar-topo:hover {
+    color: var(--vermelho);
+}
+
+.topo-background {
+    position: fixed;
+    bottom: 10px;
+}
+
+@keyframes parabaixo {
+    0% {
+        transform: translateY(-5px);
+        -webkit-transform: translateY(-5px);
+    }
+    50% {
+        transform: translateY(10px);
+        -webkit-transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(-5px);
+        -webkit-transform: translateY(-5px);
+    }
+}
+
+@-webkit-keyframes paraBaixo {
+    0% {
+        -webkit-transform: translateY(-5px);
+        transform: translateY(-5px);
+    }
+    50% {
+        -webkit-transform: translateY(10px);
+        transform: translateY(10px);
+    }
+    100% {
+        -webkit-transform: translateY(-5px);
+        transform: translateY(-5px);
+    }
+}
+
+
+/* POPUP */
+
+.modal-container {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 2000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-container.mostrar {
+    display: flex;
+}
+
+.modal {
+    background: var(--preta);
+    width: 70%;
+    min-width: 300px;
+    padding: 15px;
+    border: 10px solid var(--preta);
+    box-shadow: 0 0 0 10px var(--vermelho);
+    position: relative;
+}
+
+@keyframes modal {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -60px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.mostrar .modal {
+    animation: modal .3s;
+}
+
+.fechar {
+    position: absolute;
+    font-size: 2.3em;
+    top: -30px;
+    right: -30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 4px solid var(--preta);
+    background: white;
+    color: var(--vermelho);
+    font-family: "PT Mono", monospace;
+    cursor: pointer;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .3);
+}
+
+video {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+}
